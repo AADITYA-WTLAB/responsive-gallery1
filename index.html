@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Photo Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>🌍 Travel Photo Gallery</h2>
+
+<div class="gallery">
+
+  <img src="https://picsum.photos/id/1015/800/600" onclick="openImg(this)">
+  <img src="https://picsum.photos/id/1025/800/600" onclick="openImg(this)">
+  <img src="https://picsum.photos/id/1035/800/600" onclick="openImg(this)">
+  <img src="https://picsum.photos/id/1043/800/600" onclick="openImg(this)">
+  <img src="https://picsum.photos/id/1056/800/600" onclick="openImg(this)">
+  <img src="https://picsum.photos/id/1069/800/600" onclick="openImg(this)">
+
+</div>
+
+<!-- Popup view -->
+<div class="popup" id="popup">
+  <span onclick="closeImg()">×</span>
+  <img id="popupImg">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

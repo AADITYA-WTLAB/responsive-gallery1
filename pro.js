@@ -1,28 +1,29 @@
-const galleryImages = document.querySelectorAll('.gallery-item img');
+const photos = [
+ "https://picsum.photos/id/1015/800/600",
+ "https://picsum.photos/id/1016/800/600",
+ "https://picsum.photos/id/1024/800/600",
+ "https://picsum.photos/id/1036/800/600",
+ "https://picsum.photos/id/1043/800/600",
+ "https://picsum.photos/id/1050/800/600"
+];
 
-galleryImages.forEach(img => {
-  img.addEventListener('click', () => {
-    const overlay = document.createElement('div');
-    overlay.className = 'lightbox';
+const gallery = document.getElementById("gallery");
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popupImg");
+const closeBtn = document.getElementById("close");
 
-    // show clicked image larger
-    overlay.innerHTML = `
-      <img src="${img.src}" alt="${img.alt}">
-      <div class="close">&#10006;</div>
-    `;
+photos.forEach(imgSrc => {
+  const img = document.createElement("img");
+  img.src = imgSrc;
 
-    document.body.appendChild(overlay);
-
-    // close on clicking 'X'
-    overlay.querySelector('.close').onclick = () => {
-      document.body.removeChild(overlay);
-    };
-
-    // close when clicking outside image
-    overlay.addEventListener('click', (e) => {
-      if (e.target.className === 'lightbox') {
-        document.body.removeChild(overlay);
-      }
-    });
+  img.addEventListener("click", () => {
+    popup.style.display = "flex";
+    popupImg.src = imgSrc;
   });
+
+  gallery.appendChild(img);
 });
+
+closeBtn.onclick = () => {
+  popup.style.display = "none";
+};
